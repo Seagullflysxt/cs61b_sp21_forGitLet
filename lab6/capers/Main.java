@@ -1,10 +1,10 @@
 package capers;
 
-import java.io.File;
+//import java.io.File;
 
 import java.io.IOException;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 
 import static capers.Utils.*;
 
@@ -49,28 +49,28 @@ public class Main {
         CapersRepository.setupPersistence();
         String text;
         switch (args[0]) {
-        case "story":
-            /* This call has been handled for you. The rest will be similar. */
-            validateNumArgs("story", args, 2);
-            text = args[1];
-            CapersRepository.writeStory(text);
-            break;
-        case "dog":
-            validateNumArgs("dog", args, 4);
-            // done: make a dog
-            String name = args[1];
-            String breed = args[2];
-            int age = Integer.parseInt(args[3]);
-            CapersRepository.makeDog(name, breed, age);
-            break;
-        case "birthday":
-            validateNumArgs("birthday", args, 2);
-            // done: celebrate this dog's birthday
-            String name1 = args[1];
-            CapersRepository.celebrateBirthday(name1);
-            break;
-        default:
-            exitWithError(String.format("Unknown command: %s", args[0]));
+            case "story":
+                /* This call has been handled for you. The rest will be similar. */
+                validateNumArgs("story", args, 2);
+                text = args[1];
+                CapersRepository.writeStory(text);
+                break;
+            case "dog":
+                validateNumArgs("dog", args, 4);
+                // done: make a dog
+                String name = args[1];
+                String breed = args[2];
+                int age = Integer.parseInt(args[3]);
+                CapersRepository.makeDog(name, breed, age);
+                break;
+            case "birthday":
+                validateNumArgs("birthday", args, 2);
+                // done: celebrate this dog's birthday
+                String name1 = args[1];
+                CapersRepository.celebrateBirthday(name1);
+                break;
+            default:
+                exitWithError(String.format("Unknown command: %s", args[0]));
         }
         return;
     }

@@ -22,10 +22,10 @@ public class CapersRepository {
     static final File CWD = new File(System.getProperty("user.dir"));
 
     /** Main metadata folder. */
-    static final File CAPERS_FOLDER = Utils.join(CWD,".capers"); // TODO Hint: look at the `join`
+    static final File CAPERS_FOLDER = Utils.join(CWD, ".capers"); // TODO Hint: look at the `join`
                                             //      function in Utils
-    static final File dogs_folder = Utils.join(CAPERS_FOLDER,"dogs");
-    static final File story_file = Utils.join(CAPERS_FOLDER,"story.txt");
+    static final File DOGS_FOLDER = Utils.join(CAPERS_FOLDER, "dogs");
+    static final File STORY_FILE = Utils.join(CAPERS_FOLDER, "story.txt");
     /**
      * Does required filesystem operations to allow for persistence.
      * (creates any necessary folders or files)
@@ -41,11 +41,11 @@ public class CapersRepository {
         if (!CAPERS_FOLDER.exists()) {
             CAPERS_FOLDER.mkdir();
         }
-        if (!dogs_folder.exists()) {
-            dogs_folder.mkdir();
+        if (!DOGS_FOLDER.exists()) {
+            DOGS_FOLDER.mkdir();
         }
-        if (!story_file.exists()) {
-            story_file.createNewFile();
+        if (!STORY_FILE.exists()) {
+            STORY_FILE.createNewFile();
         }
     }
 
@@ -56,13 +56,13 @@ public class CapersRepository {
      */
     public static void writeStory(String text) {
         // done
-        String oldContents = Utils.readContentsAsString(story_file);
-        if (story_file.length() == 0) {
-            Utils.writeContents(story_file,text);
+        String oldContents = Utils.readContentsAsString(STORY_FILE);
+        if (STORY_FILE.length() == 0) {
+            Utils.writeContents(STORY_FILE, text);
         } else {
-            Utils.writeContents(story_file,oldContents + "\n", text);
+            Utils.writeContents(STORY_FILE, oldContents + "\n", text);
         }
-        String newContents = readContentsAsString(story_file);
+        String newContents = readContentsAsString(STORY_FILE);
         System.out.println(newContents);
     }
 
@@ -73,7 +73,7 @@ public class CapersRepository {
      */
     public static void makeDog(String name, String breed, int age) {
         // done
-        Dog dog = new Dog(name,breed,age);
+        Dog dog = new Dog(name, breed, age);
         dog.saveDog();
         System.out.println(dog.toString());
     }
