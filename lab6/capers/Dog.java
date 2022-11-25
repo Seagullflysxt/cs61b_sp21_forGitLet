@@ -5,12 +5,12 @@ import java.io.Serializable;
 import static capers.Utils.*;
 
 /** Represents a dog that can be serialized.
- * @author Shi Xiangting
+ * @sxt done
 */
-public class Dog implements Serializable{ // TODO
+public class Dog implements Serializable{ // done
 
     /** Folder that dogs live in. */
-    static final File DOG_FOLDER = Utils.join(CapersRepository.CAPERS_FOLDER, "dogs"); // TODO (hint: look at the `join`
+    static final File DOG_FOLDER = Utils.join(CapersRepository.dogs_folder); // done (hint: look at the `join`
                                          //      function in Utils)
 
     /** Age of dog. */
@@ -39,11 +39,9 @@ public class Dog implements Serializable{ // TODO
      * @return Dog read from file
      */
     public static Dog fromFile(String name) {
-        // TODO (hint: look at the Utils file)
-        Dog tempDog = new Dog("fake", "fake", 0);
-        File f = new File(DOG_FOLDER, name + ".txt");
-        tempDog = readObject(f, tempDog.getClass());
-        return tempDog;
+        // done (hint: look at the Utils file)
+        File serialized_dog = Utils.join(DOG_FOLDER,name);
+        return Utils.readObject(serialized_dog, Dog.class);
     }
 
     /**
@@ -59,10 +57,10 @@ public class Dog implements Serializable{ // TODO
      * Saves a dog to a file for future use.
      */
     public void saveDog() {
-        // TODO (hint: don't forget dog names are unique)
-        Dog d = this;
-        File f = new File(DOG_FOLDER,name + ".txt");
-        writeObject(f, d);
+        // done (hint: don't forget dog names are unique)
+        String name = this.name;
+        File to_serialize = Utils.join(DOG_FOLDER,name);
+        Utils.writeObject(to_serialize,this);
     }
 
     @Override
