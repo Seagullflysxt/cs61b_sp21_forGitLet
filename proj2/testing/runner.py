@@ -1,3 +1,4 @@
+import os
 import sys, re
 from subprocess import \
     check_output, PIPE, STDOUT, DEVNULL, CalledProcessError, TimeoutExpired
@@ -107,7 +108,7 @@ Also check that your REPO_DIR environment variable is the path to your
     /Users/omarkhan902/cs61b/61b_sp21_stuff/sp21-s3
 
 That's what mine looks like. Go back to lab1 if you are still having issues"""
-
+os.environ['REPO_DIR']= 'D:\learning\gitlet'
 JAVA_COMMAND = "java"
 CAPERS_COMMAND = "gitlet.Main"
 JAVAC_COMMAND = "javac -d ."
